@@ -11,9 +11,9 @@ def translate(words)
 
 	words_in_array.each do |word|
 
-		if word[0..2].include? "qu"
+		if word[0..2].include? "qu" or word[0..2].include? "Qu"
 			
-			if word[0] == "q"
+			if word[0] == "q" or word[0] == "Q"
 
 				word = word[2..-1] + word[0..1] + "ay"
 
@@ -33,6 +33,13 @@ def translate(words)
 				word = word[2..-1] + word[0..1] + "ay"
 			else
 				word = word[3..-1] + word[0..2] + "ay"
+			end
+		end
+
+		word.length.times do |i|
+			if word[i] == word[i].upcase
+				word = word.downcase
+				word = word.capitalize
 			end
 		end
 
